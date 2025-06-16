@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--    <h3>Hiển thị 20 số đầu tiên trong dãy fibonacci</h3>-->
+<!--    <div id="fibonacci"></div>-->
+
+<!--<h3>Tổng 20 số đầu tiên trong dãy fibonacci là: </h3>-->
+<!--<div id="fibonacci"></div>-->
+
+<!--<h3>Tính tổng 30 số đầu tiên trong dãy fibonacci chia hết cho 7</h3>-->
+<!--<div id="fibonacci"></div>-->
+
+<h3>Game đoán số</h3>
+<button onclick="random()">Bắt đầu chơi</button>
+    <script>
+        // bai 1 Sử dụng vòng lặp để đếm từ 1 đến 100. Khi số là 99, hiển thị hộp thoại thông báo là đã hoàn thành.
+
+        // for(let i = 1; i <= 100; i++){
+        //     console.log(i);
+        //     if ( i === 99) {
+        //         console.log("Đã hoàn thành");
+        //     }
+        // }
+
+        // bai 2 Sử dụng hàm prompt() để lấy thông tin nhiệt độ hiện tại được nhập bởi người truy cập. Nếu nhiệt độ
+        // nhập vào trên 100, yêu cầu người dùng giảm nhiệt độ. Nếu nhiệt độ dưới 20, yêu cầu người dùng tăng nhiệt độ.
+
+        // let c = +prompt("Nhập vào nhiệt độ: ");
+        // while (c > 100 || c < 20){
+        //     if( c > 100) {
+        //         alert("Nhiệt độ quá cao! Vui lòng giảm nhiệt độ");
+        //     } else if ( c < 20) {
+        //         alert("Nhiệt độ quá thấp! Vui lòng lập lại nhiệt độ");
+        //     }
+        //     c = +prompt("Vui lòng lập lại nhiệt độ!!!")
+        //
+        // } alert("Nhiệt độ nhập vào hợp lí là: " + c + " độ")
+
+        // Bài 3: Hiển thị ra 20 số trong dãy fibonacci đầu tiên.
+
+        // let n1 = 0, n2 = 1, next;
+        // let count = 20;
+        // let result = "";
+        //
+        // for (let i = 0; i < count; i++) {
+        //     result += n1 + ", "
+        //     next = n1 + n2;
+        //     n1 = n2;
+        //     n2 = next;
+        // }
+        // document.getElementById("fibonacci").innerHTML = result;
+
+        // Bài 4: Tìm số đầu tiên trong dãy fibonacci chia hết cho 5
+
+        // let n1 = 0, n2 = 1, next;
+        // while (true) {
+        //     next = n1 + n2;
+        //     n1 = n2;
+        //     n2 = next
+        //     if (n1 % 5 == 0){
+        //         document.write("Số đầu tiên trong dãy fibonacci chia hết cho 5 là số: " + n1);
+        //         break;
+        //     }
+        // }
+
+        // bai 5. Tính tổng của 20 số đầu tiên trong dãy fibonacci.
+
+        // let n1 = 0, n2 = 1, next;
+        // let sum = 0;
+        //
+        // for(let i = 0; i < 20; i++) {
+        //     sum += n1;
+        //     next = n1+ n2;
+        //     n1 = n2;
+        //     n2 = next;
+        // }
+        // document.getElementById('fibonacci').innerHTML = sum;
+
+        // Bài 6: Tính tổng của 30 số chia hết cho 7 đầu tiên trong các số tự nhiên.
+
+        // let n = 0
+        // let sum = 0;
+        // let count = 0;
+        // while (count < 30){
+        //     if (n % 7 === 0){
+        //         sum += n;
+        //         count++
+        //     }
+        //     n++
+        // }
+        // document.getElementById('fibonacci').innerHTML = sum;
+
+        // Bài 7: Hãy viết một chương trình in ra các số từ 1 đến 100. Nhưng nếu số chia hết cho 3 thì in ra "Fizz",
+        // 5 thì in ra "Buzz" thay vì in ra số đó. Và nếu số đó chia hết cho cả 3 và 5 thì in ra chữ "FizzBuzz".
+
+        // for(let i = 1; i <= 100; i++){
+        //     if(i % 3 === 0 & i % 5 === 0) {
+        //         console.log("Fizzbuzz");
+        //     } else if (i % 3 === 0 ) {
+        //         console.log("Fizz");
+        //     } else if (i % 5 === 0) {
+        //         console.log("Buzz");
+        //     } else {
+        //         console.log(i);
+        //     }
+        // }
+
+        // Bài 8: Game đoán số
+
+        function random() {
+            // b1: nhap khoang doan so
+            const max = +prompt("Nhập số giới hạn bạn muốn đoán trong khoảng: ");
+            if(isNaN(max) || max <=1){
+                alert("Vui lòng nhập số hợp lệ > 1 !!!");
+                return;
+            }
+            // b2: Tao số ngẫu nhiên từ 1 đến max
+            const so_can_doan = Math.floor(Math.random() * max) + 1;
+            let so_lan_doan = 0;
+            let so_lan_toi_da = 2;
+            // b3: tao vong lap doan
+            while(so_lan_doan <= so_lan_toi_da){
+                const du_doan = +prompt("Nhập số dự đoán: ")
+                if(isNaN(du_doan) || du_doan > max || du_doan <= 1) {
+                    alert("Vui lòng nhập 1 số hợp lệ !!!");
+                    continue;
+                }
+            so_lan_doan ++;
+                if (du_doan === so_can_doan) {
+                    alert("HURA bạn đã đoán đúng số rồi !!!");
+                    return;
+                } else if (du_doan > so_can_doan) {
+                    alert("Số cần đoán lớn hơn số bạn nghĩ !!!");
+                } else {
+                    alert("Số cần đoán nhỏ hơn số bạn nghĩ !!!");
+                }
+            }
+            // b4: Qúa số lần đoán
+            alert("Bạn đã đoán quá 3 lần rồi! Hẹn bạn lần sau !!!")
+        }
+    </script>
+</body>
+</html>
